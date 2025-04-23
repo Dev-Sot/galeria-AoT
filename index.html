@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Personajes de Ataque de los Titanes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Personajes de Ataque de los Titanes</h1>
+        <p>Explora a los personajes más destacados de esta épica serie.</p>
+        <input type="text" id="search" class="search-bar" placeholder="Busca un personaje...">
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div id="gallery-container">
+            <div id="gallery" class="gallery"></div>
+            <button id="load-more" class="load-more-btn">Cargar Más Personajes</button>
+        </div>
+    </main>
+
+    <!-- Modal de Detalles -->
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-name"></h2>
+            <p><strong>Descripción:</strong> <span id="modal-description"></span></p>
+            <p><strong>Fuerza:</strong> <span id="modal-strength"></span></p>
+            <p><strong>Velocidad:</strong> <span id="modal-speed"></span></p>
+            <p><strong>Inteligencia:</strong> <span id="modal-intelligence"></span></p>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Personajes de Ataque de los Titanes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
