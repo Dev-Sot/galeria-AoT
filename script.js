@@ -56,6 +56,30 @@ const searchInput = document.getElementById('search');
 const loadMoreButton = document.getElementById('load-more');
 let displayedCharacters = 0;
 
+// Reproductor de Música
+const musicPlayer = document.getElementById('music-player'); // Asegúrate de que tengas un id 'music-player' en tu HTML
+const playPauseButton = document.getElementById('play-pause'); // Botón para reproducir/pausar
+const musicAudio = document.getElementById('music-audio'); // Elemento de audio
+
+let isPlaying = false;
+
+// Función para reproducir/pausar música
+function toggleMusic() {
+  if (isPlaying) {
+    musicAudio.pause();
+    playPauseButton.textContent = 'Reproducir'; // Cambiar el texto del botón a 'Reproducir'
+  } else {
+    musicAudio.play();
+    playPauseButton.textContent = 'Pausar'; // Cambiar el texto del botón a 'Pausar'
+  }
+  isPlaying = !isPlaying;
+}
+
+// Función para controlar el volumen
+function adjustVolume() {
+  musicAudio.volume = document.getElementById('volume-control').value / 100;
+}
+
 // Función para mostrar personajes
 function displayCharacters() {
   const charactersToShow = characters.slice(displayedCharacters, displayedCharacters + 3); // Mostrar 3 personajes a la vez
@@ -132,3 +156,23 @@ loadMoreButton.addEventListener('click', function () {
 
 // Cargar los primeros personajes al inicio
 displayCharacters();
+
+// Event listeners para el reproductor de música
+playPauseButton.addEventListener('click', toggleMusic);
+document.getElementById('volume-control').addEventListener('input', adjustVolume);
+
+// Función para actualizar la barra de progreso
+function updateProgress() {
+  const progressBar = document.querySelector('.progress');
+  const progress = (musicAudio.currentTime / musicAudio.duration) * 100;
+  progressBar.style.width = `${progress}%`;
+}
+
+// Función para controlar el volumen
+function adjustVolume() {
+  musicAudio.volume = document.querySelector('.volume-slider input').value / 100;
+}
+
+// Event listener para la barra de progreso
+musicAudio.addEventListener('timeupdate', updateProgress);
+document.querySelector('.volume-slider input').addEventListener('input', adjustVolume);
