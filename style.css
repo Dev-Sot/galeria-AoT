@@ -188,3 +188,19 @@ footer {
 footer p {
   font-size: 1rem;
 }
+
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
+.music-player audio {
+  width: 250px;
+  border-radius: 8px;
+}
